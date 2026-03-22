@@ -3,9 +3,6 @@ import { ApiResponse, Movie, FiltersState } from '../types';
 
 const api = axios.create({
   baseURL: '/api/v1.4',
-  headers: {
-    'X-API-KEY': import.meta.env.VITE_KINOPOISK_API_KEY,
-  },
 });
 
 export const fetchMovies = async (

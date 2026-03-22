@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const apiRes = await fetch(target, {
       method: req.method || 'GET',
       headers: {
-        'X-API-KEY': process.env.VITE_KINOPOISK_API_KEY || '',
+        'X-API-KEY': process.env.KINOPOISK_API_KEY || process.env.VITE_KINOPOISK_API_KEY || '',
         'Accept': 'application/json',
       },
     });

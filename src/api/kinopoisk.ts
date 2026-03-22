@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { ApiResponse, Movie, FiltersState } from '../types';
 
-const API_KEY = 'PRHT9N8-VCN4SYB-Q327F2T-XC37DTB';
+// В dev — через Vite прокси (/api → poiskkino.dev)
+// В prod (Vercel) — напрямую, ключ в заголовке
+const isDev = import.meta.env.DEV;
 
 const api = axios.create({
-  baseURL: '/api/v1.4',
+  baseURL: isDev ? '/api/v1.4' : 'https://api.poiskkino.dev/v1.4',
   headers: {
-    'X-API-KEY': API_KEY,
+    'X-API-KEY': import.meta.env.VITE_KINOPOISK_API_KEY,
   },
 });
 

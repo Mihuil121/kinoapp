@@ -1,8 +1,13 @@
 import axios from 'axios';
 import { ApiResponse, Movie, FiltersState } from '../types';
 
+const API_KEY = 'PRHT9N8-VCN4SYB-Q327F2T-XC37DTB';
+
 const api = axios.create({
   baseURL: '/api/v1.4',
+  headers: {
+    'X-API-KEY': API_KEY,
+  },
 });
 
 export const fetchMovies = async (
